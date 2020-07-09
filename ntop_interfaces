@@ -1,5 +1,5 @@
 #!/bin/bash -u
 echo "Content-type: application/json"
 echo ""
-curl -s -u admin:dogger "http://schnoz:3000/lua/rest/v1/get/ntopng/interfaces.lua" | jq '.rsp[]' | jq --slurp '.' | jq '[.[] | .["text"] = .ifname | .["value"] = .ifid | del(.ifname, .ifid)]'
+curl -s -u admin:admin "http://ntopng:3000/lua/rest/v1/get/ntopng/interfaces.lua" | jq '.rsp[]' | jq --slurp '.' | jq '[.[] | .["text"] = .ifname | .["value"] = .ifid | del(.ifname, .ifid)]'
 
